@@ -32,7 +32,7 @@ app.post("/", async (req, res) => {
 
 
     const API_URL = "https://api.openai.com/v1/completions";
-    const API_KEY = "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";
+    const API_KEY = ""; //input api key here
     const resOptions = {
         method: "POST",
         headers: {
