@@ -9,10 +9,9 @@ A convenient way to get data from your syllabus(or any pdf) using the ChatGPT AP
 - [Getting Started](#getting-started)
 - [Usage](#usage)
 - [Key-Notes](#key-notes)
-- 
 ## Introduction
 
-Chatgpt is changing the way we use technology. It's no doubt it's very useful and can be integrated in many ways. I had the idea of combining pdf parsing and the ChatGPT API to create an ai driven pdf scraper.
+Chatgpt is changing the way we use technology. It's no doubt it's very useful and can be integrated in many ways. I had the idea of combining pdf parsing and the ChatGPT API to create an AI-driven pdf scraper.
 
 ## Technologies Used
 JavaScript (Node.js), Express.js, pdf-parse library, OpenAI GPT-3 (API key required)
