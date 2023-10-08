@@ -1,6 +1,6 @@
 # Syllabus-Scraper-V1
 
-A convient way to get data from your syllabus(or any pdf) using the chatgpt api
+A convenient way to get data from your syllabus(or any pdf) using the ChatGPT API
 
 ## Table of Contents
 
@@ -12,7 +12,7 @@ A convient way to get data from your syllabus(or any pdf) using the chatgpt api
 - 
 ## Introduction
 
-Chatgpt is changing the way we use technology. It's no doubt it's a very useful and can be integrated in many ways. I had the idea of combining pdf parsing and the chatgpt api to create an ai driven pdf scraper.
+Chatgpt is changing the way we use technology. It's no doubt it's very useful and can be integrated in many ways. I had the idea of combining pdf parsing and the ChatGPT API to create an ai driven pdf scraper.
 
 ## Technologies Used
 JavaScript (Node.js), Express.js, pdf-parse library, OpenAI GPT-3 (API key required)
@@ -43,5 +43,5 @@ The AI will identify and return dates related to tests, quizzes, midterms, exams
 The processed results will be displayed below the buttons.
 
 ## Key-Notes
--Ensure that you have a stable internet connection to use the OpenAI GPT-3 API.
--Be aware of OpenAI's terms of service and usage policies when using their API.
+Ensure that you have a stable internet connection to use the OpenAI GPT-3 API.
+Be aware of OpenAI's terms of service and usage policies when using their API.
