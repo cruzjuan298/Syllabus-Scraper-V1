@@ -1,6 +1,6 @@
 # Syllabus-Scraper-V1
 
-A convenient way to get data from your syllabus(or any pdf) using the ChatGPT API
+A convenient way to get data from your syllabus(or any pdf if you change the prompt) using the ChatGPT API
 
 ## Table of Contents
 
