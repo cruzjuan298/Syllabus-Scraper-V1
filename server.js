@@ -13,11 +13,13 @@ app.use(express.json())
 app.use(fileUpload())
 
 app.post("/extract-text", (req, res) => {
+    console.log("Recieved request:", req.files);
     if(!req.files && !req.files.pdfFile){
-        req.status(400);
-        res.end();
+        console.log("No file uploaded")
+        return res.status(400).send("No file uploaded")
     }
-    pdfParse(req.files.pdfFile).then(result => {
+    pdfParse(req.files.pdfFile)
+        .then(result => {
         res.send(result.text);
     })
 })
