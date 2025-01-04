@@ -10,13 +10,20 @@
         postBtn.addEventListener("click", parsePdf)
 
 
-        async function parsePdf(e) {
-            e.preventDefault()
+    async function parsePdf(e) {
+        e.preventDefault()
+
+        if (!input.files[0]){
+            console.error("No file selected");
+            responseDiv.textContent = "Please select a file";
+            return;
+        }
+
         const formData = new FormData();
         formData.append("pdfFile", input.files[0]);
-
+        
         try {
-            const response = await fetch("/extract-text", {
+            const response = await fetch(`${baseUrl}extract-text`, {
                 method: "POST",
                 body: formData,
             });
@@ -25,10 +32,14 @@
                 textInFile = await response.text();
                 postInfo();
             } else {
-                console.error("Error extracting text from PDF.");
+                const errorText = await response.text();
+                console.error("Error extracting text from PDF.", errorText);
+                responseDiv.textContent = "Error: " + errorText;
+                return;
             }
         } catch (error) {
             console.error("Error fetching text from server:", error);
+            responseDiv.textContent = "Error fetching text from server." ;
         }
     }
 

@@ -1,4 +1,8 @@
 import {createRequire} from "module"
+import dotenv from "dotenv"
+
+dotenv.config();
+const API_KEY = process.env.API_KEY;
 
 const require = createRequire(import.meta.url)
 
@@ -14,14 +18,17 @@ app.use(fileUpload())
 
 app.post("/extract-text", (req, res) => {
     console.log("Recieved request:", req.files);
-    if(!req.files && !req.files.pdfFile){
+
+    if(!req.files || !req.files.pdfFile){
         console.log("No file uploaded")
         return res.status(400).send("No file uploaded")
     }
     pdfParse(req.files.pdfFile)
-        .then(result => {
-        res.send(result.text);
-    })
+        .then(result => res.send(result.text))
+        .catch(err => {
+            console.error("Error Parsing PDF:", err);
+            res.status(500).send("Error parsing PDF.")
+        })
 })
 
 app.post("/", async (req, res) => {
@@ -34,7 +41,6 @@ app.post("/", async (req, res) => {
 
 
     const API_URL = "https://api.openai.com/v1/completions";
-    const API_KEY = ""; //input api key here
     const resOptions = {
         method: "POST",
         headers: {
