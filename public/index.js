@@ -23,7 +23,7 @@
         formData.append("pdfFile", input.files[0]);
         
         try {
-            const response = await fetch(`${baseUrl}extract-text`, {
+            const response = await fetch("http://localhost:8383/extract-text", {
                 method: "POST",
                 body: formData,
             });
@@ -31,6 +31,7 @@
             if (response.ok) {
                 textInFile = await response.text();
                 postInfo();
+                console.log("Extracted Text:", textInFile);
             } else {
                 const errorText = await response.text();
                 console.error("Error extracting text from PDF.", errorText);
@@ -61,6 +62,7 @@
 
             if (res.ok) {
                 const data = await res.json();
+                console.log("Response from backend:", data)
                 responseDiv.textContent = "Response: " + data.responseInfo;
             } else {
                 console.error("Error posting data to the server.");
